@@ -1,0 +1,70 @@
+// Two syntax---scss/sass mostly used scss
+@import "variables";
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+//MiXIns 
+@mixin flex-center($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+nav{
+    @include flex-center(row);
+    background-color: $grey;
+    height: 10vh;
+
+    ul{
+        @include flex-center(row);
+        list-style: none;
+        margin-right: 50px;
+
+
+        li{
+            margin: 5px;
+            
+
+            a{
+                text-decoration: none;
+                font-size: 18px;
+                color: #333;
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+}
+
+
+//Extends
+%btn{
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px;
+    border: none;
+    background-color: $color-primary;
+    color: $white;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.cta{
+    .btn1{
+        @extend %btn;
+        background-color: green;
+    }
+    .btn2{
+        @extend %btn;
+    }
+}
+
+//function-a block of code that does something
+
